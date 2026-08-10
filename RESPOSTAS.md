@@ -9,16 +9,22 @@ Dupla (M2 em diante):
 ## M2 - Quem quebrou o painel
 
 **Hash curto do commit que introduziu o erro:**
-
+01ef93b
 **Autor:**
-
+Tarcisio Melo
 **Data:**
-
+15 de junho de 2026 ás 22:38
 **Linha alterada (antes e depois):**
 
 ```
 antes:
+function converterTemperatura(leitura) {
+  return leitura * 9 / 5 + 32;
+}
 depois:
+function converterTemperatura(leitura) {
+  return (leitura * 9 / 5) + 32;
+}
 ```
 
 ---
