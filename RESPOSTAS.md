@@ -34,9 +34,10 @@ function converterTemperatura(leitura) {
 **O que voce esperava ver no `git status` e o que apareceu:**
 
 **Depois do push, alguem que clonar o repositorio ainda consegue ler a chave?
-Responda em duas linhas, explicando o motivo:**
+Responda em duas linhas, explicando o motivo:
+Depois do push, a plataforma do GitHub não exibe a pasta com as credenciais ao público, ficando única e exclusivamente na minha máquina. É como se ele tivesse ignorado a pasta com as informações que não deveriam ir a público.**
 
-Depois do push, a plataforma do GitHub não exibe a pasta com as credenciais ao público, ficando única e exclusivamente na minha máquina. É como se ele tivesse ignorado a pasta com as informações que não deveriam ir a público.
+
 ---
 
 ## M4 - Colisao
