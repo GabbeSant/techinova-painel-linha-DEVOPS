@@ -43,18 +43,20 @@ Depois do push, a plataforma do GitHub não exibe a pasta com as credenciais ao 
 
 **O que significavam os marcadores que apareceram dentro do arquivo:**
 
-- `<<<<<<<` :
-- `=======` :
-- `>>>>>>>` :
+- `<<<<<<<` : Indica o início do seu código atual
+- `=======` : É a linha divisória. Tudo o que está acima dela é o seu código local, e tudo o que está abaixo é o código vindo da outra branch/commit.
+- `>>>>>>>` : Indica o fim do código recebido
 
 **Qual pedaco veio de quem, e qual titulo voces decidiram manter:**
-
+Mantemos o original "Painel da Linha 3" mantendo do jeito original
 ---
 
 ## Casa - Incidente na linha 3
 
 **Hash do commit que quebrou o painel:**
+025e2e0
 
-**Hash do commit de revert:**
+**Hash do commit de revert:** e7dea17
 
 **Por que `git revert` e nao `git reset` neste caso:**
+O git revert, pois ele reverteu as mudanças feitas e cria um novo commit para isto
