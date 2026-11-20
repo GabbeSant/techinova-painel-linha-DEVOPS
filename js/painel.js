@@ -1,28 +1,40 @@
 const TABELA = document.querySelector('#sensores tbody');
 
 async function carregarSensores() {
-  const resposta = await fetch('dados/sensores.json');
-  const sensores = await resposta.json();
-  sensores.forEach(desenharLinha);
+  try {
+    const resposta = await fetch('dados/sensores.json');
+    if (!resposta.ok) throw new Error('Falha ao carregar dados dos sensores');
+    
+    const sensores = await resposta.json();
+    sensores.forEach(desenharLinha);
+  } catch (erro) {
+    console.error('Erro:', erro);
+  }
 }
 
-function converterTemperatura(leitura) {
-  return (leitura * 9 / 5) + 32;
+function converterCelsiusParaFahrenheit(celsius) {
+  return (celsius * 9 / 5) + 32;
 }
 
 function desenharLinha(sensor) {
-  const celsius = converterTemperatura(sensor.valor).toFixed(1);
+  const fahrenheit = converterCelsiusParaFahrenheit(sensor.valor).toFixed(1);
   const tr = document.createElement('tr');
-  tr.innerHTML =
-    '<td>' + sensor.codigo + '</td>' +
-    '<td>' + sensor.descricao + '</td>' +
-    '<td>' + celsius + ' C</td>' +
-    '<td>ok</td>';
+  
+  tr.innerHTML = `
+    <td>${sensor.codigo}</td>
+    <td>${sensor.descricao}</td>
+    <td>${fahrenheit} °F</td>
+    <td>ok</td>
+  `;
+  
   TABELA.appendChild(tr);
 }
 
 function marcarAtualizacao() {
-  document.querySelector('#atualizado').textContent = new Date().toLocaleString('pt-BR');
+  const elementoAtualizacao = document.querySelector('#atualizado');
+  if (elementoAtualizacao) {
+    elementoAtualizacao.textContent = new Date().toLocaleString('pt-BR');
+  }
 }
 
 carregarSensores();
